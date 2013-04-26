@@ -8,7 +8,7 @@ import string
 #Config
 separator='☯'
 errlog='error.log'
-filelist='a3'
+filelist='sorted_file_list.txt'
 ##############################################################
 
 #Inital values
@@ -34,6 +34,7 @@ for line in open(filelist):
 					os.unlink(filename + 'PYTHONDDUPTMPFILE')
 				except:
 					print("ERROR -=- Unable to clean up after: " + separator + filename + separator + ' prime ' + separator + prime + separator + ' md5 ' + separator + md5 + separator)	
+					errlog.writelines("ERROR -=- Unable to clean up after: " + separator + filename + separator + ' prime ' + separator + prime + separator + ' md5 ' + separator + md5 + separator + '\n')
 			except:
 				try:
 					os.rename(filename + 'PYTHONDDUPTMPFILE', filename)
@@ -44,7 +45,7 @@ for line in open(filelist):
 					
 		except:
 			print('Skipping attempt for ' + filename + ', unable to move out of way.')
-			errlog.writelines('Skipping attempt for ' + filename + ', unable to move out of way.')
+			errlog.writelines('Skipping attempt for ' + filename + ', unable to move out of way.\n')
 	#ef it isnt, we will link the file to the old prime
 
 		#move file to backup
