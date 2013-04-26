@@ -3,6 +3,10 @@ pmdd
 
 Poor Mans Data Deduplicator
 
+To Do
+==
+Move linker to a threadded class and determine the optimal number of threads to run for speed performance
+
 Objective
 ==
 De-Duplicate data on the file level by hard linking equivocal files.
@@ -23,16 +27,27 @@ This script deletes files. It may delete files you are fond of. Have a backup.
 Only you are responsible for any losses that arise from the use of these scripts. Read them, understand them, they are intentionally simple.
 
 This program deletes your files.
+
 This program deletes your files.
+
 This program deletes your files.
+
 This program deletes your files.
+
 This program deletes your files.
+
 This program deletes your files.
+
 This program deletes your files.
+
 This program deletes your files.
+
 This program deletes your files.
+
 This program deletes your files.
+
 This program deletes your files.
+
 
 License / Disclaimer
 ==
