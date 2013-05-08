@@ -6,15 +6,15 @@ import string
 
 ##############################################################
 #Config
-separator='☯'
-errlog='error.log'
+separator='  '
+errlogname='error.log'
 filelist='sorted_file_list.txt'
 ##############################################################
 
 #Inital values
 md5=''
 prime=''
-errlog=open('error.log', 'a')
+errlog=open(errlogname, 'a')
 for line in open(filelist):
 	dat=line.split(separator, 1)
 	filename=dat[1].rstrip('\n')
