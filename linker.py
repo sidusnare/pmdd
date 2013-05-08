@@ -1,7 +1,12 @@
 #!/usr/bin/python3
+import argparse
 import sys
 import os
 import string 
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-v", "--verbose", help="Increase output verbosity.", action="store_true")
+args = parser.parse_args()
 
 
 ##############################################################
@@ -14,18 +19,39 @@ filelist='sorted_file_list.txt'
 #Inital values
 md5=''
 prime=''
+#Write an error log
 errlog=open(errlogname, 'a')
-for line in open(filelist):
+#loop over entire list
+listsize = int(os.stat(filelist).st_size)
+loc=0
+oldper=0
+if args.verbose:
+	print("List is " + str(listsize) + " bytes in size\n")
+fh=open(filelist)
+while loc < listsize:
+	line = fh.readline()
+	#Line should be in format md5.separator.filename
 	dat=line.split(separator, 1)
 	filename=dat[1].rstrip('\n')
 	newmd5=dat[0]
-
+	#If the new sum isnt like the old sum its a new file
+	loc=fh.tell()
+	per= 100 * fh.tell() / listsize
+	prettyper = int(per)
 	if newmd5 != md5:
-		print('\nNew unique file, hash: ' + newmd5 + " prime: " + filename)
+		if args.verbose:
+			print('\nNew unique file, hash: ' + newmd5 + " prime: " + filename)
+		else:
+			if  oldper != prettyper:
+				print (str(prettyper) + "%")
 		md5 = newmd5
 		prime = filename
 	else:
-		print("Same file: " + filename)
+		if args.verbose:
+			print("Same file: " + filename)
+		else:
+			if  oldper != prettyper:
+				print (str(prettyper) + "%")
 		try:
 			os.rename(filename, filename + 'PYTHONDDUPTMPFILE')
 			try:
@@ -46,14 +72,4 @@ for line in open(filelist):
 		except:
 			print('Skipping attempt for ' + filename + ', unable to move out of way.')
 			errlog.writelines('Skipping attempt for ' + filename + ', unable to move out of way.\n')
-	#ef it isnt, we will link the file to the old prime
-
-		#move file to backup
-
-		#hard link into place
-
-		#if successful remove old
-
-
-#loop
 

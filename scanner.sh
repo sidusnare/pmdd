@@ -1,11 +1,8 @@
 #!/bin/bash
 
-<<<<<<< Updated upstream
 #If you do this often on large data sets, you might want to use nsort instead of sort, its got stupid fast sorting http://www.ordinal.com/
 
-=======
 #Make sure we have all the programs we need
->>>>>>> Stashed changes
 for x in iconv grep sed find sort;do
 	if ! which $x 2>&1 >> /dev/null; then
 		echo "Please install $x"
