@@ -40,7 +40,7 @@ while loc < listsize:
 	prettyper = int(per)
 	if newmd5 != md5:
 		if args.verbose:
-			print('\nNew unique file, hash: ' + newmd5 + " prime: " + filename)
+			print('\nNew unique file, at ' + str(prettyper) +  '%, hash: ' + newmd5 + " prime: " + filename)
 		else:
 			if  oldper != prettyper:
 				print (str(prettyper) + "%")
@@ -59,17 +59,17 @@ while loc < listsize:
 				try:
 					os.unlink(filename + 'PYTHONDDUPTMPFILE')
 				except:
-					print("ERROR -=- Unable to clean up after: " + separator + filename + separator + ' prime ' + separator + prime + separator + ' md5 ' + separator + md5 + separator)	
-					errlog.writelines("ERROR -=- Unable to clean up after: " + separator + filename + separator + ' prime ' + separator + prime + separator + ' md5 ' + separator + md5 + separator + '\n')
+					print("ERROR -=- Unable to clean up after: " + filename + ' prime: ' + prime + ' md5: ' + md5)	
+					errlog.writelines("ERROR -=- Unable to clean up after: " + filename + ' prime ' + prime + ' md5 ' + md5 + '\n')
 			except:
 				try:
 					os.rename(filename + 'PYTHONDDUPTMPFILE', filename)
 				except:
-					print("ERROR -=- Lost: " + separator + filename + separator + ' prime ' + separator + prime + separator + ' md5 ' + separator + md5 + separator)
-					errlog.writelines("ERROR -=- Lost: " + separator + filename + separator + ' prime ' + separator + prime + separator + ' md5 ' + separator + md5 + separator + '\n')
+					print("ERROR -=- Lost: " + filename + ' prime ' + prime + ' md5 ' + md5)
+					errlog.writelines("ERROR -=- Lost: " + filename + ' prime ' + prime + ' md5 ' + md5 + '\n')
 
 					
 		except:
-			print('Skipping attempt for ' + filename + ', unable to move out of way.')
+			print('ERROR -=- Skipping attempt for ' + filename + ', unable to move out of way.')
 			errlog.writelines('Skipping attempt for ' + filename + ', unable to move out of way.\n')
 
