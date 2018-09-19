@@ -3,13 +3,45 @@ pmdd
 
 Poor Mans Data Deduplicator
 
+Warnings
+==
+This script deletes files. It may delete files you are fond of. Have a backup.
+Only you are responsible for any losses that arise from the use of these scripts. 
+Read the scripts, understand the scrips.
+It's probably best if you just use these as inspiration for your own scripts.
+
+This script deletes your files.
+
+This script deletes your files.
+
+This script deletes your files.
+
+This script deletes your files.
+
+This script deletes your files.
+
+This script deletes your files.
+
+This script deletes your files.
+
+This script deletes your files.
+
+This script deletes your files.
+
+This script deletes your files.
+
+This script deletes your files.
+
+The linker is parallel bash via xargs, it will run the number of CPU cores presented to Linux + two.
 To Do
 ==
-Move linker to a threadded class and determine the optimal number of threads to run for speed performance
+* Compare logs to detect changed data / bitrot
+* Excludes for linking script
 
 Objective
 ==
-De-Duplicate data on the file level by hard linking equivocal files.
+* Keep track of data changes to detect bitrot and anything unexpected tampering with files.
+* De-Duplicate data on the file level by hard linking equivocal files.
 
 Use Case
 ==
@@ -17,36 +49,11 @@ Large store of static read only data files. Perhaps multiple whole-system dump s
 
 Do-Not-Use Case
 ==
-Shared network dive with write access. 
-Any set of data someone else might use.
-If you don't know what hard links are and/or an inode is, you need to find out, and understand the full ramifications of what a hard link is.
+* Shared network dive with write access. 
+* Any set of data someone else might use, especially write to.
+* If you don't know what hard links are and/or an inode is, you need to find out, and understand the full ramifications of what a hard link is.
+* Enterprise grade users have better solutions
 
-Warnings
-==
-This script deletes files. It may delete files you are fond of. Have a backup.
-Only you are responsible for any losses that arise from the use of these scripts. Read them, understand them, they are intentionally simple.
-
-This program deletes your files.
-
-This program deletes your files.
-
-This program deletes your files.
-
-This program deletes your files.
-
-This program deletes your files.
-
-This program deletes your files.
-
-This program deletes your files.
-
-This program deletes your files.
-
-This program deletes your files.
-
-This program deletes your files.
-
-This program deletes your files.
 
 
 License / Disclaimer
